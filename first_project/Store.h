@@ -7,7 +7,7 @@ struct Store
 	void add();
 	void remove();
 	BookList sorted_books(int flag, int flag1);
-	Book find(const String&, const int & flag );
+	Book *find(const String&, const int & flag );
 
 
 private :

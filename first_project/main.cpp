@@ -92,7 +92,10 @@ bool process(Store & a ,Commands comm)
 			std::cerr << "Wrong input\n";
 			return -1;
 		}
-		a.sorted_books(flag1, flag2).print();
+		BookList temp;
+
+		temp = a.sorted_books(flag1, flag2);
+		temp.print();
 		return 1;
 	}; break;
 	case Find:
@@ -112,12 +115,20 @@ bool process(Store & a ,Commands comm)
 		std::cout << "Please enter :\n";
 		String v;
 		v.getline();
-		a.find(v, flag).Print();
+		Book* f = a.find(v, flag);
+		if (f != nullptr)
+		{
+			f->Print();
+		}
+		else {
+			std::cerr << "No such book found";
+		}
 		return 1;
 	}; break;
 	case Add:
 	{
 		a.add();
+		std::cin.ignore(10000, '\n');
 		return 1;
 	}; break;
 	case Remove:
@@ -132,7 +143,7 @@ bool process(Store & a ,Commands comm)
 		title.getline();
 		int flag;
 		String what;
-		std::cout << "Do you wish to read a sertain number of linesor of sentences? ( please tipe lines or sentences): \n";
+		std::cout << "Do you wish to read a sertain number of lines or of sentences? ( please tipe lines or sentences): \n";
 		what.getline();
 		if (what == "lines")
 			flag = 0;
@@ -145,7 +156,16 @@ bool process(Store & a ,Commands comm)
 		std::cout << "Please enter the count\n";
 		int cnt;
 		std::cin >> cnt;
-		a.find(title, 1).print(flag, cnt);
+		Book* f = a.find(title, 0);
+		if (f != nullptr)
+		{
+			f->print(flag, cnt);
+		}
+		else
+		{
+			std::cerr << "No such book\n";
+		}
+		std::cin.ignore(10000, '\n');
 		return 1;
 	}; break;
 	case Info:
@@ -175,14 +195,30 @@ int main()
 
 		
 		str.clear();
+		
 		std::cout << "Please enter a command\n";
 
 		str.getline();
 		std::cout << str << '\n';
 		Commands comm = transform(str);
 		if (!process(a, comm)) break;
-		std::cin.clear();
-	}
 	
-
+	
+	}
+	//String author = "Ivan1";
+	//String title = "Mihov1";
+	//String descr = "Sth1";
+	//String source = "test.txt";
+	//double rating = 4.55;
+	//long long isbn = 4545545;
+	//String author1 = "Ivan";
+	//String title1 = "Mihov";
+	//String descr1 = "Sth";
+	//String source1 = "test.txt";
+	//double rating1 = 4.55;
+	//long long isbn1 = 4545545;
+	//Book b(title, author, source, descr, rating, isbn);
+	//Book b1(title1, author1, source1, descr1, rating1, isbn1);
+	//BookList b2;
+	//
 }

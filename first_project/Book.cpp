@@ -4,6 +4,24 @@ bool mark(const char& a)
 {
 	return a == '.' || a == '!' || a == '?';
 }
+Book::Book(const Book& other)
+{
+	this->author = other.author;
+	this->title = other.title;
+	this->source = other.source;
+	this->description = other.description;
+	this->rating = other.rating;
+	this->isbn = other.isbn;
+}
+Book::Book(const Book* other)
+{
+	this->author = other->author;
+	this->title = other->title;
+	this->source = other->source;
+	this->description = other->description;
+	this->rating = other->rating;
+	this->isbn = other->isbn;
+}
 Book ::Book
    (const String& author, 
 	const String& title ,
@@ -43,7 +61,7 @@ long long Book::get_isbn()const
 {
 	return this->isbn;
 }
-bool Book::smaller_by(const Book& other, unsigned int flag = 0, unsigned int flag1 = 0)
+bool Book::smaller_by( Book & other, unsigned int flag = 0, unsigned int flag1 = 0)
 {
 // flag1 determines if it should return < or >
 // flag determines if it should return comparison by title , author or isbn
@@ -52,9 +70,10 @@ bool Book::smaller_by(const Book& other, unsigned int flag = 0, unsigned int fla
 	case 0: {
 		switch (flag)
 		{
-		case 0: return title < other.title; break;
+			std::cout << other.title;
+		/*case 0: return title < other.title; break;
 		case 1: return author < other.author; break;
-		case 2: return isbn < other.isbn; break;
+		case 2: return isbn < other.isbn; break;*/
 		}
 	} break;
 	case 1:
@@ -77,18 +96,19 @@ Book& Book ::operator=(const Book& other)
 		this->title = other.title;
 		this->rating = other.rating;
 		this->isbn = other.isbn;
+		this->source = other.source;
 	}
 	return *this;
 
 }
- bool Book ::operator==(const Book& b)
+ bool Book ::equal( Book* b)
 {
-	return (b.title == title &&
-		b.author == author &&
-		b.description == description &&
-		b.source == source &&
-		b.rating == rating &&
-		b.isbn == isbn);
+	return (b->title == title &&
+		b->author == author &&
+		b->description == description &&
+		b->source == source &&
+		b->rating == rating &&
+		b->isbn == isbn);
 
 }
  void Book::print(const int& flag, const int& cnt) const
@@ -97,12 +117,13 @@ Book& Book ::operator=(const Book& other)
 	 {
 	 case 0:
 	 {
+	
 		 std::string a;
 		 std::ifstream b;
-		 b.open(this->source.string());
+		 b.open(this->source.c_str());
 		 char c = ' ';
 		 int cnt_n = 0;
-		 while (cnt_n != 15 && !b.eof())
+		 while (cnt_n != cnt && !b.eof())
 		 {
 			 c = b.get();
 
@@ -141,5 +162,5 @@ Book& Book ::operator=(const Book& other)
   }
  void Book::Print()const 
  {
-	 std::cout << title << " " << author << " " << description << " " <<"Source:" << source << " " << rating << " " << isbn << '\n';
+	 std::cout << title << " " << author << " " << description << " "  << source << " " << rating << " " << isbn << '\n';
  }

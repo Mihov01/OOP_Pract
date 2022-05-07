@@ -4,6 +4,8 @@
 struct Book {
 	Book() = default;
 	Book(const String&, const String&, const String&, const String&, const double&, const long long&);
+	Book(const Book& );
+	Book(const Book*);
 	Book& operator =(const Book&);
 	String get_author()const;
 	String get_title()const;
@@ -11,8 +13,9 @@ struct Book {
 	String get_description()const;
 	double get_rating()const;
 	long long get_isbn()const;
-	bool smaller_by (const Book& other, unsigned int , unsigned int );
-	bool operator == (const Book&);
+	bool smaller_by ( Book& other, unsigned int , unsigned int );
+	bool equal ( Book*);
+
 	void print(const int& flag, const int& cnt)const;
 	friend std::ostream& operator << (std::ostream&, const Book& b);
 	void Print()const;
