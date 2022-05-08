@@ -173,11 +173,7 @@ String String::operator+(const String& rhs) const {
 const char* String::c_str() const {
     return str;
 }
-const char* String::string() const {
-     char* s = new char[len - 1];
-    strcpy_s(s, len - 1, str);
-    return s;
-}
+
 bool String::operator<(const String& rhs) const {
     int thisBeforeOther = std::strcmp(str, rhs.str);
     if (thisBeforeOther < 0) {

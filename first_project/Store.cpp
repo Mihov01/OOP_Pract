@@ -87,7 +87,8 @@ void Store::remove()
         title.getline();
         Book *b = find(title, 0);
         if (b != nullptr)
-        books.remove(b);
+        books.remove(*b);
+        delete b;
     }
     else
     {
@@ -100,10 +101,10 @@ BookList Store::sorted_books(int flag, int flag1)
 
     return books.sort(flag, flag1);
 }
-Book *  Store::find(const String& str, const int & flag)
+ Book*  Store::find(const String& str, const int & flag)
 {
     bool found = false;
-    int size = books.Size();
+    int size = books.size();
     switch (flag)
     {
     case 0 : 
@@ -111,9 +112,9 @@ Book *  Store::find(const String& str, const int & flag)
       
         for (int i = 0; i < size; i++)
         {
-            if (books[i]->get_title() == str)
+            if (books[i].get_title() == str)
             {
-                return books[i];
+                return new Book (books[i]);
             }
         }
         return nullptr;
@@ -123,9 +124,9 @@ Book *  Store::find(const String& str, const int & flag)
 
         for (int i = 0; i < size; i++)
         {
-            if (books[i]->get_author() == str)
+            if (books[i].get_author() == str)
             {
-                return books[i];
+                return new Book(books[i]);
             }
         }
         return nullptr;
@@ -135,9 +136,9 @@ Book *  Store::find(const String& str, const int & flag)
 
         for (int i = 0; i < size; i++)
         {
-            if (to_string(books[i]->get_isbn()) == str)
+            if (to_string(books[i].get_isbn()) == str)
             {
-                return books[i];
+                return new Book(books[i]);
             }
         }
         return nullptr;
@@ -147,9 +148,9 @@ Book *  Store::find(const String& str, const int & flag)
 
         for (int i = 0; i < size; i++)
         {
-            if (books[i]->get_description().matching_substr(str))
+            if (books[i].get_description().matching_substr(str))
             {
-                return books[i];
+                return new Book(books[i]);
             }
         }
         return nullptr;

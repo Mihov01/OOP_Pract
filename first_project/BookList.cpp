@@ -1,22 +1,75 @@
 # include "Booklist.h"
 #include <stdexcept>
-void merge(Book **array, int const left, int const mid, int const right, int flag, int flag1)
+# include <algorithm>
+int partition(std::vector<Book> &arr, int start, int end, int flag , int flag1 )
+{
+
+	Book pivot = arr[start];
+
+	int count = 0;
+	for (int i = start + 1; i <= end; i++) {
+		if (arr[i] .smaller_by (pivot, flag , flag1))
+			count++;
+	}
+
+	// Giving pivot element its correct position
+	int pivotIndex = start + count;
+	std::swap(arr[pivotIndex], arr[start]);
+
+	// Sorting left and right parts of the pivot element
+	int i = start, j = end;
+
+	while (i < pivotIndex && j > pivotIndex) {
+
+		while (arr[i].smaller_by(pivot, flag, flag1)) {
+			i++;
+		}
+
+		while (!arr[i].smaller_by(pivot, flag, flag1)) {
+			j--;
+		}
+
+		if (i < pivotIndex && j > pivotIndex) {
+			std::swap(arr[i++], arr[j--]);
+		}
+	}
+
+	return pivotIndex;
+}
+
+void quickSort(std::vector<Book> &arr, int start, int end, int flag , int flag1)
+{
+
+	// base case
+	if (start >= end)
+		return;
+
+	// partitioning the array
+	int p = partition(arr, start, end, flag , flag1);
+
+	// Sorting the left part
+	quickSort(arr, start, p - 1, flag, flag1);
+
+	// Sorting the right part
+	quickSort(arr, p + 1, end, flag , flag1);
+}
+
+void merge(std::vector<Book> & array, int const left, int const mid, int const right, int flag, int flag1)
 {
 	// flag1 determines if it should return < or >
    // flag determines if it should return comparison by title , author or isbn
 	int const subArrayOne = mid - left + 1;
 	int const subArrayTwo = right - mid;
 
-	Book** leftArray;
-		Book ** rightArray;
-	leftArray = new Book * [subArrayOne];
-	rightArray = new Book*[subArrayTwo];
+	std::vector<Book> leftArray;
+	std::vector<Book> rightArray;
+	
 
 
 	for (int i = 0; i < subArrayOne; i++)
-		leftArray[i] = array[left + i];
+		leftArray.push_back (array[left + i]);
 	for (int j = 0; j < subArrayTwo; j++)
-		rightArray[j] = array[mid + 1 + j];
+		rightArray.push_back( array[mid + 1 + j]);
 
 	int indexOfSubArrayOne = 0,
 		indexOfSubArrayTwo = 0;
@@ -24,7 +77,7 @@ void merge(Book **array, int const left, int const mid, int const right, int fla
 
 
 	while (indexOfSubArrayOne < subArrayOne && indexOfSubArrayTwo < subArrayTwo) {
-		if (leftArray[indexOfSubArrayOne]->smaller_by(*(rightArray[indexOfSubArrayTwo]), flag, flag1)) {
+		if (leftArray[indexOfSubArrayOne].smaller_by(rightArray[indexOfSubArrayTwo], flag, flag1)) {
 		array[indexOfMergedArray] = leftArray[indexOfSubArrayOne];
 			indexOfSubArrayOne++;
 		}
@@ -49,7 +102,7 @@ void merge(Book **array, int const left, int const mid, int const right, int fla
 }
 
 
-void mergeSort(Book ** array, int const begin, int const end, int flag, int flag1)
+void mergeSort(std::vector<Book>& array, int const begin, int const end, int flag, int flag1)
 {
 	if (begin >= end)
 		return;
@@ -63,33 +116,22 @@ BookList BookList:: sort(int flag, int flag1)
 {
 	
 	BookList a;
-	a.copy(this->book, this->size, this->capacity);
-	mergeSort(a.book, 0, size-1, flag, flag1);
+	a.list = this->list;
+	//quickSort(a.list, 0, a.size() - 1, flag, flag1);
+	mergeSort(a.list, 0, a.size() - 1, flag, flag1);
+	
+	//std::sort(a.list.begin(), a.list.end(), [&](const Book& a, const Book& b) {return a.smaller_by(b, flag, flag1); });
 	return a;
 }
 BookList::BookList()
 {
-	try
-	{
-		this->book = new Book*[capacity];
-	}
-	catch (const std::exception& e)
-	{
-		throw e;
-	}
+	
 }
 BookList::BookList(const BookList& other)
 {
 	try
 	{
-		book = new Book *[other.capacity];
-		int size = other.size;
-		for (int i = 0; i < size; i++)
-		{
-			this->book[i] = other.book[i];
-		}
-		this->size = other.size;
-		this->capacity = other.capacity;
+		this->list = other.list;
 	}
 	catch (const std::exception& e)
 	{
@@ -99,87 +141,60 @@ BookList::BookList(const BookList& other)
 
 void BookList::push(const Book & b)
 {
-	if (this->capacity == this->size)
-	{
-		resize();
-	}
-	Book* temp = new Book(b);
-	this->book[size++] = temp;
+	list.push_back(b);
 }
 void BookList::pop()
 {
-	if (size != 0)
-	{
-		delete book[size-1];
-		size--;
-	}
+	list.pop_back();
 }
-Book* BookList ::operator[](const unsigned int& i)
+Book& BookList ::operator[](const unsigned int& i)
 {
-	return book[i];
+	return list[i];
 }
-Book* BookList ::operator[](const unsigned int& i)const 
-{
-	return book[i];
-}
-int BookList::elem( Book* b)
+
+int BookList::elem( const Book& b)
 {
 	
-	
-	for (int i = 0; i < size; i++)
+	int s = list.size();
+	for (int i = 0; i < s; i++)
 	{
-		if (book[i] ->equal (b)) return i;
-		book[i]->Print();
+		if (list[i].equal (b)) return i;
+		
 	}
 	return -1;
 }
-void BookList::remove( Book* b)
+void BookList::remove( const Book& b)
 {
 	int ind = elem(b);
 	if (ind  != -1)
 	{
-		for (int i = 0; i < size-1; i++)
+		int s = list.size();
+		for (int i = 0; i < s-1; i++)
 		{
-			std::swap(book[i], book[i+1]);
+			std::swap(list[i], list[i+1]);
 		}
-		pop();
+		list.pop_back();
 	}
 }
-bool BookList::reserve(int size1)
+void BookList::reserve(int size1)
 {
-	try
-	{
-		Book** temp = new Book*[size1];
-		int s = this->size;
-		for (int i = 0; i < s; i++)
-		{
-			temp[i] = new Book (*book[i]);
-		}
-		free();
-		this->size = s;
-		this->book = temp;
-		capacity = size1;
-	}
-	catch (const std::exception& e)
-	{
-		return false;
-	}
-	return true;
+	list.reserve(size1);
 }
-int BookList::Size()const
+int BookList::size()const
 {
-	return this->size;
+	return this->list.size();
 }
 BookList::~BookList()
 {
-	free();
+	
 }
 void BookList::print()const
 {
 
-	for (int i = 0; i < size; i++)
+	int s = list.size();
+	for (int i = 0; i < s; i++)
 	{
-	 book[i]->Print();
+	 list[i].Print();
 		std::cout << "\n";
 	}
 }
@@ -187,7 +202,7 @@ BookList & BookList ::operator =(const BookList& other)
 {
 	if (this != &other)
 	{
-		copy(other.book, other.size, other.capacity);
+		this->list = other.list;
 		
 	}
 	return *this;

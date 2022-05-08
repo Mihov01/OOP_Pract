@@ -49,5 +49,5 @@ public:
     void print();
     void getline();
     friend std::ostream& operator << (std:: ostream& out, const String& str);
-    const char* string()const;
+
 };

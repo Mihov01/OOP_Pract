@@ -1,3 +1,4 @@
+# include <vld.h>
 # include <iostream>
 # include "MyString.h"
 # include "Store.h"
@@ -119,6 +120,7 @@ bool process(Store & a ,Commands comm)
 		if (f != nullptr)
 		{
 			f->Print();
+			delete f;
 		}
 		else {
 			std::cerr << "No such book found";
@@ -160,6 +162,7 @@ bool process(Store & a ,Commands comm)
 		if (f != nullptr)
 		{
 			f->print(flag, cnt);
+			delete f;
 		}
 		else
 		{
@@ -205,20 +208,27 @@ int main()
 	
 	
 	}
-	//String author = "Ivan1";
-	//String title = "Mihov1";
-	//String descr = "Sth1";
-	//String source = "test.txt";
-	//double rating = 4.55;
-	//long long isbn = 4545545;
-	//String author1 = "Ivan";
-	//String title1 = "Mihov";
-	//String descr1 = "Sth";
-	//String source1 = "test.txt";
-	//double rating1 = 4.55;
-	//long long isbn1 = 4545545;
-	//Book b(title, author, source, descr, rating, isbn);
-	//Book b1(title1, author1, source1, descr1, rating1, isbn1);
-	//BookList b2;
-	//
+	/*String author = "MArto";
+	String title = "Mihov1";
+	String descr = "Sth1";
+	String source = "test.txt";
+	double rating = 4.55;
+	long long isbn = 4545545;
+	String author1 = "Ivan";
+	String title1 = "Mihov";
+	String descr1 = "Sth";
+	String source1 = "test.txt";
+	double rating1 = 4.55;
+	long long isbn1 = 1;
+	Book b(title, author, source, descr, rating, isbn);
+	Book b1(title1, author1, source1, descr1, rating1, isbn1);
+	BookList b2;
+	b2.push(b);
+	b2.push(b1);
+	
+
+	b2.sort(1, 0).print();
+	b2.print();*/
+	//std::cout << b2[1].smaller_by(b2[0], 0, 0);
+	
 }

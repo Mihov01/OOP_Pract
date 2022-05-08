@@ -13,15 +13,7 @@ Book::Book(const Book& other)
 	this->rating = other.rating;
 	this->isbn = other.isbn;
 }
-Book::Book(const Book* other)
-{
-	this->author = other->author;
-	this->title = other->title;
-	this->source = other->source;
-	this->description = other->description;
-	this->rating = other->rating;
-	this->isbn = other->isbn;
-}
+
 Book ::Book
    (const String& author, 
 	const String& title ,
@@ -61,7 +53,7 @@ long long Book::get_isbn()const
 {
 	return this->isbn;
 }
-bool Book::smaller_by( Book & other, unsigned int flag = 0, unsigned int flag1 = 0)
+bool Book::smaller_by(const  Book & other, unsigned int flag = 0, unsigned int flag1 = 0)const
 {
 // flag1 determines if it should return < or >
 // flag determines if it should return comparison by title , author or isbn
@@ -70,10 +62,10 @@ bool Book::smaller_by( Book & other, unsigned int flag = 0, unsigned int flag1 =
 	case 0: {
 		switch (flag)
 		{
-			std::cout << other.title;
-		/*case 0: return title < other.title; break;
+		
+		case 0: return title < other.title; break;
 		case 1: return author < other.author; break;
-		case 2: return isbn < other.isbn; break;*/
+		case 2: return isbn < other.isbn; break;
 		}
 	} break;
 	case 1:
@@ -101,14 +93,14 @@ Book& Book ::operator=(const Book& other)
 	return *this;
 
 }
- bool Book ::equal( Book* b)
+ bool Book ::equal( const Book& b)
 {
-	return (b->title == title &&
-		b->author == author &&
-		b->description == description &&
-		b->source == source &&
-		b->rating == rating &&
-		b->isbn == isbn);
+	return (b.title == title &&
+		b.author == author &&
+		b.description == description &&
+		b.source == source &&
+		b.rating == rating &&
+		b.isbn == isbn);
 
 }
  void Book::print(const int& flag, const int& cnt) const
