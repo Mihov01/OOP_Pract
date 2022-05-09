@@ -1,5 +1,6 @@
 #pragma once
-# include "BookList.h"
+# include <vector>
+# include "Book.h"
 # include<conio.h>
 
 struct Store
@@ -7,11 +8,14 @@ struct Store
 	Store();
 	void add();
 	void remove();
-	BookList sorted_books(int flag, int flag1);
+	std::vector<Book> sorted_books(int flag, int flag1);
 	Book *find(const String&, const int & flag );
 
 
 private :
+	void remove(const Book & b);
+	int elem(const Book&);
+
 	bool correct_password()const
 	{
 		String a;
@@ -27,7 +31,7 @@ private :
 		}
 		return a == password;
 	}
-	BookList books;
+	std::vector<Book> books;
 	String password;
 };
 

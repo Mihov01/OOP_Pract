@@ -12,10 +12,7 @@ void String::copy(const String& other) {
     str = tempStr;
     len = other.len;
 }
-//void String::destroy() {
-//    delete[] str;
-//    len = 0;
-//}
+
 
 String::String() {
     str = new char[1];
