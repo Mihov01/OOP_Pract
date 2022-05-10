@@ -1,0 +1,34 @@
+\doxysection{Book.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include"{}String.h"{}}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\# include "{}Isbn.h"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\# include <iostream>}}
+\DoxyCodeLine{5 \textcolor{keyword}{struct }Book \{}
+\DoxyCodeLine{6     Book() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{7     Book(\textcolor{keyword}{const} String\&, \textcolor{keyword}{const} String\&, \textcolor{keyword}{const} String\&, \textcolor{keyword}{const} String\&, \textcolor{keyword}{const} \textcolor{keywordtype}{double}\&, \textcolor{keyword}{const} Isbn\&);}
+\DoxyCodeLine{8     Book(\textcolor{keyword}{const} Book\& );}
+\DoxyCodeLine{9     Book\& operator =(\textcolor{keyword}{const} Book\&);}
+\DoxyCodeLine{10     String get\_author()\textcolor{keyword}{const};}
+\DoxyCodeLine{11     String get\_title()\textcolor{keyword}{const};}
+\DoxyCodeLine{12     String get\_source()\textcolor{keyword}{const};}
+\DoxyCodeLine{13     String get\_description()\textcolor{keyword}{const};}
+\DoxyCodeLine{14     \textcolor{keywordtype}{double} get\_rating ()\textcolor{keyword}{const};}
+\DoxyCodeLine{15     Isbn  get\_isbn()\textcolor{keyword}{const};}
+\DoxyCodeLine{16     \textcolor{keywordtype}{bool} smaller\_by (  Book\& other, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} , \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} )\textcolor{keyword}{const} ;}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18     \textcolor{keywordtype}{void} print(\textcolor{keyword}{const} \textcolor{keywordtype}{int}\& flag, \textcolor{keyword}{const} \textcolor{keywordtype}{int}\& cnt)\textcolor{keyword}{const};}
+\DoxyCodeLine{19     \textcolor{keywordtype}{void} Print()\textcolor{keyword}{const};}
+\DoxyCodeLine{20     \textcolor{keywordtype}{bool} operator ==(\textcolor{keyword}{const} Book\&);}
+\DoxyCodeLine{21 \textcolor{keyword}{private}:}
+\DoxyCodeLine{22     String author;}
+\DoxyCodeLine{23     String title;}
+\DoxyCodeLine{24     String source;}
+\DoxyCodeLine{25     String description;}
+\DoxyCodeLine{26     \textcolor{keywordtype}{double} rating;}
+\DoxyCodeLine{27     Isbn isbn;}
+\DoxyCodeLine{28 }
+\DoxyCodeLine{29 \};}
+
+\end{DoxyCode}

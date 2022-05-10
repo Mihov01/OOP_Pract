@@ -1,0 +1,30 @@
+\doxysection{Isbn.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\# include "{}String.h"{}}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\# include <iostream>}}
+\DoxyCodeLine{4 \textcolor{keyword}{struct }Isbn}
+\DoxyCodeLine{5 \{}
+\DoxyCodeLine{6     Isbn()= \textcolor{keywordflow}{default};}
+\DoxyCodeLine{7     Isbn(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int}, \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int});}
+\DoxyCodeLine{8     Isbn(\textcolor{keyword}{const} Isbn\&);}
+\DoxyCodeLine{9 }
+\DoxyCodeLine{10     \textcolor{keyword}{friend} std::istream\& operator >> (std::istream\&, Isbn\&);}
+\DoxyCodeLine{11     Isbn\& operator = (\textcolor{keyword}{const} Isbn\& other);}
+\DoxyCodeLine{12     \textcolor{keywordtype}{bool} operator ==( \textcolor{keyword}{const} Isbn\& other);}
+\DoxyCodeLine{13     String to\_string();}
+\DoxyCodeLine{14     \textcolor{keywordtype}{bool} operator < ( \textcolor{keyword}{const} Isbn\&);}
+\DoxyCodeLine{15     \textcolor{keywordtype}{bool} operator > (\textcolor{keyword}{const} Isbn\&);}
+\DoxyCodeLine{16     \textcolor{keyword}{friend} std::ostream\& operator <<(std::ostream\&, \textcolor{keyword}{const} Isbn\&);}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 private :}
+\DoxyCodeLine{19     }
+\DoxyCodeLine{20     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} EAN\_prefix\{0\};}
+\DoxyCodeLine{21     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} reg\_group\{ 0 \};}
+\DoxyCodeLine{22     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} publication\{ 0 \};}
+\DoxyCodeLine{23     \textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{int} check\_digit\{ 0 \};}
+\DoxyCodeLine{24 \};}
+\DoxyCodeLine{25 }
+
+\end{DoxyCode}

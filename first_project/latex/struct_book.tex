@@ -1,0 +1,76 @@
+\doxysection{Book Struct Reference}
+\label{struct_book}\index{Book@{Book}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{struct_book_abe2a9ae870e6f7bd932b0bd78e80dbdf}} 
+{\bfseries Book} (const \textbf{ String} \&, const \textbf{ String} \&, const \textbf{ String} \&, const \textbf{ String} \&, const double \&, const \textbf{ Isbn} \&)
+\item 
+\mbox{\label{struct_book_af65879fe192bb0f4fd725b2b85eeaaeb}} 
+{\bfseries Book} (const \textbf{ Book} \&)
+\begin{DoxyCompactList}\small\item\em copy constructor \end{DoxyCompactList}\item 
+\mbox{\label{struct_book_abb6cfa5c809d2aa8b7459af830bd81f7}} 
+\textbf{ Book} \& {\bfseries operator=} (const \textbf{ Book} \&)
+\begin{DoxyCompactList}\small\item\em operator == checks if to books are equal \end{DoxyCompactList}\item 
+\mbox{\label{struct_book_a670e5f523a622a28258a9fe35dbb2799}} 
+\textbf{ String} {\bfseries get\+\_\+author} () const
+\item 
+\mbox{\label{struct_book_af7cdc91c3ba2922e873cdad0c2eb92cf}} 
+\textbf{ String} {\bfseries get\+\_\+title} () const
+\item 
+\mbox{\label{struct_book_a09ea2b8c5ee3fa85d02cdc8f052fc5da}} 
+\textbf{ String} {\bfseries get\+\_\+source} () const
+\item 
+\mbox{\label{struct_book_af18fe09174c5d240e6e8b604a4145929}} 
+\textbf{ String} {\bfseries get\+\_\+description} () const
+\item 
+\mbox{\label{struct_book_abc36d8297c543cb6c3b127f77684241e}} 
+double {\bfseries get\+\_\+rating} () const
+\item 
+\mbox{\label{struct_book_af9a9cf09bd4d68e03427a3434cfe1059}} 
+\textbf{ Isbn} {\bfseries get\+\_\+isbn} () const
+\item 
+\mbox{\label{struct_book_ad702d1cf9b8fe1aae222f35910bcc96c}} 
+bool {\bfseries smaller\+\_\+by} (\textbf{ Book} \&other, unsigned int, unsigned int) const
+\begin{DoxyCompactList}\small\item\em checs if a book is smaller / bigger than this book given a criteria \end{DoxyCompactList}\item 
+void \textbf{ print} (const int \&flag, const int \&cnt) const
+\item 
+void \textbf{ Print} () const
+\item 
+bool \textbf{ operator==} (const \textbf{ Book} \&)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{struct_book_aa4f713a31ac415ae16747d85ccf6ff54}} 
+\index{Book@{Book}!operator==@{operator==}}
+\index{operator==@{operator==}!Book@{Book}}
+\doxysubsubsection{operator==()}
+{\footnotesize\ttfamily bool Book\+::operator== (\begin{DoxyParamCaption}\item[{const \textbf{ Book} \&}]{b }\end{DoxyParamCaption})}
+
+!operator ==\mbox{\label{struct_book_a287edcd23f5c62841a449e3d1c6a2f37}} 
+\index{Book@{Book}!Print@{Print}}
+\index{Print@{Print}!Book@{Book}}
+\doxysubsubsection{Print()}
+{\footnotesize\ttfamily void Book\+::\+Print (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+prints the basic informaton about the book\mbox{\label{struct_book_a72938e00fb31e9f77cebbbd1c036499a}} 
+\index{Book@{Book}!print@{print}}
+\index{print@{print}!Book@{Book}}
+\doxysubsubsection{print()}
+{\footnotesize\ttfamily void Book\+::print (\begin{DoxyParamCaption}\item[{const int \&}]{flag,  }\item[{const int \&}]{cnt }\end{DoxyParamCaption}) const}
+
+prints a given number of lines or sentences from the source ~\newline
+ 
+\begin{DoxyParams}{Parameters}
+{\em cnt} & the number of lines or sentences\\
+\hline
+{\em flag} & determines if the cnt is about lines or sentences \\
+\hline
+\end{DoxyParams}
+if flag is 0 the program reads cnt lines else it reads cnt sentences
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Book.\+h\item 
+Book.\+cpp\end{DoxyCompactItemize}

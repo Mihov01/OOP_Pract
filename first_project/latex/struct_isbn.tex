@@ -1,0 +1,60 @@
+\doxysection{Isbn Struct Reference}
+\label{struct_isbn}\index{Isbn@{Isbn}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\textbf{ Isbn} (unsigned int, unsigned int, unsigned int, unsigned int)
+\item 
+\mbox{\label{struct_isbn_a500078411f5dd04330b4da2d513cdc5e}} 
+{\bfseries Isbn} (const \textbf{ Isbn} \&)
+\item 
+\mbox{\label{struct_isbn_aad9cec97761750ace70b359e805cfd78}} 
+\textbf{ Isbn} \& {\bfseries operator=} (const \textbf{ Isbn} \&other)
+\item 
+\mbox{\label{struct_isbn_aa446578e8dd5fed32b93c22148f436ed}} 
+bool {\bfseries operator==} (const \textbf{ Isbn} \&other)
+\begin{DoxyCompactList}\small\item\em checks if two isbn are equal \end{DoxyCompactList}\item 
+\mbox{\label{struct_isbn_ae11d0c510ac242a0ab10d4e2a4a6f92b}} 
+\textbf{ String} {\bfseries to\+\_\+string} ()
+\begin{DoxyCompactList}\small\item\em converts the number to a string \end{DoxyCompactList}\item 
+\mbox{\label{struct_isbn_ae282794aca1dc4214ad0e62220748ddc}} 
+bool {\bfseries operator$<$} (const \textbf{ Isbn} \&)
+\item 
+\mbox{\label{struct_isbn_a9644aca0640358f43c03b9b4402823c7}} 
+bool {\bfseries operator$>$} (const \textbf{ Isbn} \&)
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{struct_isbn_a7ab846db7599b63793b50c428e85264d}} 
+std\+::istream \& {\bfseries operator$>$$>$} (std\+::istream \&, \textbf{ Isbn} \&)
+\begin{DoxyCompactList}\small\item\em input operator throws an exception if the \doxyref{Isbn}{p.}{struct_isbn} is not valid \end{DoxyCompactList}\item 
+\mbox{\label{struct_isbn_a0d6f4f4a6aba331a47c8b6c4e9d51559}} 
+std\+::ostream \& {\bfseries operator$<$$<$} (std\+::ostream \&, const \textbf{ Isbn} \&)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\label{struct_isbn_a768a059a1d312eec86b49158835d4fcc}} 
+\index{Isbn@{Isbn}!Isbn@{Isbn}}
+\index{Isbn@{Isbn}!Isbn@{Isbn}}
+\doxysubsubsection{Isbn()}
+{\footnotesize\ttfamily Isbn\+::\+Isbn (\begin{DoxyParamCaption}\item[{unsigned int}]{a,  }\item[{unsigned int}]{b,  }\item[{unsigned int}]{c,  }\item[{unsigned int}]{d }\end{DoxyParamCaption})}
+
+
+\begin{DoxyParams}{Parameters}
+{\em a} & is EAN\+\_\+prefix \\
+\hline
+{\em b} & is reg\+\_\+group \\
+\hline
+{\em c} & is publication \\
+\hline
+{\em d} & is chek digit\\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Isbn.\+h\item 
+Isbn.\+cpp\end{DoxyCompactItemize}

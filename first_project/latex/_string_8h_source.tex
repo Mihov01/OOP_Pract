@@ -1,0 +1,56 @@
+\doxysection{String.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <cstddef>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\# include <iostream>}}
+\DoxyCodeLine{4 \textcolor{keyword}{class }String \{}
+\DoxyCodeLine{5     \textcolor{keywordtype}{char}* str = \textcolor{keyword}{nullptr};}
+\DoxyCodeLine{6     std::size\_t len = 0;}
+\DoxyCodeLine{7 }
+\DoxyCodeLine{8     \textcolor{keywordtype}{void} copy(\textcolor{keyword}{const} String\&);}
+\DoxyCodeLine{9     }
+\DoxyCodeLine{10 \textcolor{keyword}{public}:}
+\DoxyCodeLine{11     String();}
+\DoxyCodeLine{12     String(\textcolor{keyword}{const} String\&);}
+\DoxyCodeLine{13     String\& operator=(\textcolor{keyword}{const} String\&);}
+\DoxyCodeLine{14     \string~String();}
+\DoxyCodeLine{15 }
+\DoxyCodeLine{16     String(\textcolor{keyword}{const} \textcolor{keywordtype}{char}*);}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18     \textcolor{keywordtype}{bool} operator==(\textcolor{keyword}{const} String\&) \textcolor{keyword}{const};}
+\DoxyCodeLine{19     \textcolor{keywordtype}{bool} operator!=(\textcolor{keyword}{const} String\&) \textcolor{keyword}{const};}
+\DoxyCodeLine{20 }
+\DoxyCodeLine{21     \textcolor{keywordtype}{char}\& at(std::size\_t pos);}
+\DoxyCodeLine{22     \textcolor{keyword}{const} \textcolor{keywordtype}{char}\& at(std::size\_t pos) \textcolor{keyword}{const};}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24     \textcolor{keywordtype}{char}\& operator[](std::size\_t pos);}
+\DoxyCodeLine{25     \textcolor{keyword}{const} \textcolor{keywordtype}{char}\& operator[](std::size\_t pos) \textcolor{keyword}{const};}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27     \textcolor{keywordtype}{char}\& front();}
+\DoxyCodeLine{28     \textcolor{keyword}{const} \textcolor{keywordtype}{char}\& front() \textcolor{keyword}{const};}
+\DoxyCodeLine{29     \textcolor{keywordtype}{char}\& back();}
+\DoxyCodeLine{30     \textcolor{keyword}{const} \textcolor{keywordtype}{char}\& back() \textcolor{keyword}{const};}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32     \textcolor{keywordtype}{void} push\_back(\textcolor{keywordtype}{char} c);}
+\DoxyCodeLine{33     \textcolor{keywordtype}{void} pop\_back();}
+\DoxyCodeLine{34 }
+\DoxyCodeLine{35     String\& operator+=(\textcolor{keywordtype}{char} c);}
+\DoxyCodeLine{36     String\& operator+=(\textcolor{keyword}{const} String\& rhs);}
+\DoxyCodeLine{37     }
+\DoxyCodeLine{38     String operator+(\textcolor{keywordtype}{char} c) \textcolor{keyword}{const};}
+\DoxyCodeLine{39     String operator+(\textcolor{keyword}{const} String\& rhs) \textcolor{keyword}{const};}
+\DoxyCodeLine{40 }
+\DoxyCodeLine{41     \textcolor{keyword}{const} \textcolor{keywordtype}{char}* c\_str() \textcolor{keyword}{const};}
+\DoxyCodeLine{42 }
+\DoxyCodeLine{43     \textcolor{keywordtype}{bool} operator<(\textcolor{keyword}{const} String\& rhs) \textcolor{keyword}{const};}
+\DoxyCodeLine{44     \textcolor{keywordtype}{bool} matching\_substr(\textcolor{keyword}{const} String\& str);}
+\DoxyCodeLine{45     \textcolor{keywordtype}{void} clear();}
+\DoxyCodeLine{46     std::size\_t size() \textcolor{keyword}{const};}
+\DoxyCodeLine{47     \textcolor{keywordtype}{bool} empty() \textcolor{keyword}{const};}
+\DoxyCodeLine{48     \textcolor{keywordtype}{void} getline();}
+\DoxyCodeLine{49     \textcolor{keyword}{friend} std::ostream\& operator << (std:: ostream\& out, \textcolor{keyword}{const} String\& str);}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{51 \};}
+
+\end{DoxyCode}

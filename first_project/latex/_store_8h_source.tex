@@ -1,0 +1,42 @@
+\doxysection{Store.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\# include <vector>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\# include "{}Book.h"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\# include<conio.h>}}
+\DoxyCodeLine{5 }
+\DoxyCodeLine{6 \textcolor{keyword}{struct }Store}
+\DoxyCodeLine{7 \{}
+\DoxyCodeLine{8     Store();}
+\DoxyCodeLine{9     \textcolor{keywordtype}{void} add();}
+\DoxyCodeLine{10     \textcolor{keywordtype}{void} remove();}
+\DoxyCodeLine{11     std::vector<Book> sorted\_books(\textcolor{keywordtype}{int} flag, \textcolor{keywordtype}{int} flag1);}
+\DoxyCodeLine{12     Book *find(\textcolor{keyword}{const} String\&, \textcolor{keyword}{const} \textcolor{keywordtype}{int} \& flag );}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 }
+\DoxyCodeLine{15 private :}
+\DoxyCodeLine{16     \textcolor{keywordtype}{void} remove(\textcolor{keyword}{const} Book \& b);}
+\DoxyCodeLine{17     \textcolor{keywordtype}{int} elem(\textcolor{keyword}{const} Book\&);}
+\DoxyCodeLine{18 }
+\DoxyCodeLine{19     \textcolor{keywordtype}{bool} correct\_password()\textcolor{keyword}{const}}
+\DoxyCodeLine{20 \textcolor{keyword}{    }\{}
+\DoxyCodeLine{21         String a;}
+\DoxyCodeLine{22         std::cout << \textcolor{stringliteral}{"{}Please enter password : \(\backslash\)n"{}};}
+\DoxyCodeLine{23         \textcolor{keywordtype}{char} b = \_getch();}
+\DoxyCodeLine{24         std::cout << \textcolor{stringliteral}{"{}*"{}};}
+\DoxyCodeLine{25         a.push\_back(b);}
+\DoxyCodeLine{26         \textcolor{keywordflow}{while} (b != \textcolor{charliteral}{'\(\backslash\)r'})}
+\DoxyCodeLine{27         \{}
+\DoxyCodeLine{28             b = \_getch();}
+\DoxyCodeLine{29             std::cout << \textcolor{stringliteral}{"{}*"{}};}
+\DoxyCodeLine{30             a.push\_back(b);}
+\DoxyCodeLine{31         \}}
+\DoxyCodeLine{32         \textcolor{keywordflow}{return} a == password;}
+\DoxyCodeLine{33     \}}
+\DoxyCodeLine{34     std::vector<Book> books;}
+\DoxyCodeLine{35     String password;}
+\DoxyCodeLine{36 \};}
+\DoxyCodeLine{37 }
+
+\end{DoxyCode}

@@ -1,0 +1,34 @@
+\doxysection{Store Struct Reference}
+\label{struct_store}\index{Store@{Store}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\label{struct_store_a5f58eadcb7385d5a5aa6830daef84f7d}} 
+{\bfseries Store} ()
+\begin{DoxyCompactList}\small\item\em in the constructor the user should set the password for the authorised commands \end{DoxyCompactList}\item 
+\mbox{\label{struct_store_a63ea2ecc6405703bba973aefe551001a}} 
+void {\bfseries add} ()
+\begin{DoxyCompactList}\small\item\em if the password is correct the new book is added to the library \end{DoxyCompactList}\item 
+\mbox{\label{struct_store_aa47588e065d49dfa0f6ddd47541b60f9}} 
+void {\bfseries remove} ()
+\begin{DoxyCompactList}\small\item\em removes if found a book from the library , by the title of the book time complexity tita(n) \end{DoxyCompactList}\item 
+std\+::vector$<$ \textbf{ Book} $>$ \textbf{ sorted\+\_\+books} (int flag, int flag1)
+\item 
+\mbox{\label{struct_store_a7c2cfbee65b2be15b5ea25bdfae5dba6}} 
+\textbf{ Book} $\ast$ {\bfseries find} (const \textbf{ String} \&, const int \&flag)
+\begin{DoxyCompactList}\small\item\em return a dynamicly allocated book if the book is found .... returns nullptr otherwise \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\label{struct_store_a9355014bd3cf804293462271dd399222}} 
+\index{Store@{Store}!sorted\_books@{sorted\_books}}
+\index{sorted\_books@{sorted\_books}!Store@{Store}}
+\doxysubsubsection{sorted\_books()}
+{\footnotesize\ttfamily std\+::vector$<$ \textbf{ Book} $>$ Store\+::sorted\+\_\+books (\begin{DoxyParamCaption}\item[{int}]{flag,  }\item[{int}]{flag1 }\end{DoxyParamCaption})}
+
+returns the sorted vector
+
+The documentation for this struct was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Store.\+h\item 
+Store.\+cpp\end{DoxyCompactItemize}

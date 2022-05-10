@@ -1,26 +1,24 @@
 #include "Store.h"
 
-
-// a function that converts a long long to a string 
-String to_string(long long a)
+inline bool number(const char& a)
 {
+    return a > '0' && a < '9';
+}
+//! a function that converts a long long to a string 
+String remove_spaces(const String & a)
+{
+
     String b ;
-    while (a)
-    {
-        b += ('0' + a % 10);
-        a /= 10;
-    }
-    String c;
-    int size = b.size();
-    int ind = size - 1;
+    int size = a.size();
     for (int i = 0; i < size; i++)
     {
-        c += b[ind--];
+        if (number(a[i]))b.push_back(a[i]);
     }
+  
 
-    return c;
+    return b;
 }
-// int the constructor the user should set the password for the authorised commands 
+//! in the constructor the user should set the password for the authorised commands 
 Store::Store()
 {
   
@@ -35,7 +33,7 @@ Store::Store()
         password.push_back(b);
     }
 }
-// if the password is correct the new book is added to the library 
+//! if the password is correct the new book is added to the library 
 void Store::add()
 {
     try {
@@ -52,23 +50,29 @@ void Store::add()
 
             String sor;
             sor.getline();
-            std::cout << "Please type description of the book , if you are done, please enter ctr + C : \n";
+            std::cout << "Please type description of the book , if you are done, please enter enter and after that  ctr + Z : \n";
             char a = ' ';
             String descr;
-            while (true)
+            while (a!= EOF)
             {
                 a = getchar();
                 if (a == '^Z') break;
 
                 descr.push_back(a);
             }
-
-            std::cout << "\n Source:" << sor << "\n";
-            std::cout << "Please enter the rating of the book  : \n";
+            std::cout << "Please enter the rating of the book (the raiting should be between 0 and 10) : \n";
             double rating;
+         
+          
             std::cin >> rating;
+            if (!std::cin) { std::cin.clear(); throw std::runtime_error("bad input\n"); }
+            if (rating > 10 || rating < 0)
+            {
+                throw std::runtime_error("bad input\n");
+            }
             std::cout << "Please enter the ISBN of the book : \n";
-            long long isbn;
+            std::cout << "-----------------------------------------------\n";
+             Isbn isbn;
             std::cin >> isbn;
             Book b(aut, tit, sor, descr, rating, isbn);
 
@@ -88,7 +92,7 @@ void Store::add()
     }
 }
 
-// removes if found a book from the library , by the title of the book time complexity tita(n)
+//! removes if found a book from the library , by the title of the book time complexity tita(n)
 void Store::remove()
 {
     try
@@ -114,7 +118,7 @@ void Store::remove()
         throw e;
     }
 }
-// if tthe book exists in the library then the index of the book is return otherwise it returns -1  time complexity tita(n)
+//! if tthe book exists in the library then the index of the book is return otherwise it returns -1  time complexity tita(n)
 int Store::elem(const Book& b)
 {
 
@@ -122,12 +126,12 @@ int Store::elem(const Book& b)
     int s = books.size();
     for (int i = 0; i < s; i++)
     {
-        if (books[i].equal(b)) return i;
+        if (books[i]==b) return i;
 
     }
     return -1;
 }
-// time complexity tita (n)
+//! time complexity tita (n)
 void Store::remove(const Book& b)
 {
     try
@@ -149,51 +153,51 @@ void Store::remove(const Book& b)
         throw e;
     }
 }
-// an algoritm that sortes a vector using merge sort time complexity tita(nlogn)
+//! an algoritm that sortes a vector using merge sort time complexity tita(nlogn)
 void merge(std::vector<Book>& array, int const left, int const mid, int const right, int flag, int flag1)
 {
-    // flag1 determines if it should return < or >
-   // flag determines if it should return comparison by title , author or isbn
-    int const subArrayOne = mid - left + 1;
-    int const subArrayTwo = right - mid;
+    ///@param flag1 determines if it should return < or >
+   ///@param flag determines if it should return comparison by title , author or isbn
+    int const lenght_arr1 = mid - left + 1;
+    int const lenght_arr2 = right - mid;
 
     std::vector<Book> leftArray;
     std::vector<Book> rightArray;
 
 
 
-    for (int i = 0; i < subArrayOne; i++)
+    for (int i = 0; i < lenght_arr1; i++)
         leftArray.push_back(array[left + i]);
-    for (int j = 0; j < subArrayTwo; j++)
+    for (int j = 0; j < lenght_arr2; j++)
         rightArray.push_back(array[mid + 1 + j]);
 
-    int indexOfSubArrayOne = 0,
-        indexOfSubArrayTwo = 0;
-    int indexOfMergedArray = left;
+    int ind_arr_1 = 0,
+        ind_arr_2 = 0;
+    int ind_merged = left;
 
 
-    while (indexOfSubArrayOne < subArrayOne && indexOfSubArrayTwo < subArrayTwo) {
-        if (leftArray[indexOfSubArrayOne].smaller_by(rightArray[indexOfSubArrayTwo], flag, flag1)) {
-            array[indexOfMergedArray] = leftArray[indexOfSubArrayOne];
-            indexOfSubArrayOne++;
+    while (ind_arr_1 < lenght_arr1 && ind_arr_2 < lenght_arr2) {
+        if (leftArray[ind_arr_1].smaller_by(rightArray[ind_arr_2], flag, flag1)) {
+            array[ind_merged] = leftArray[ind_arr_1];
+            ind_arr_1++;
         }
         else {
-            array[indexOfMergedArray] = rightArray[indexOfSubArrayTwo];
-            indexOfSubArrayTwo++;
+            array[ind_merged] = rightArray[ind_arr_2];
+            ind_arr_2++;
         }
-        indexOfMergedArray++;
+        ind_merged++;
     }
 
-    while (indexOfSubArrayOne < subArrayOne) {
-        array[indexOfMergedArray] = leftArray[indexOfSubArrayOne];
-        indexOfSubArrayOne++;
-        indexOfMergedArray++;
+    while (ind_arr_1 < lenght_arr1) {
+        array[ind_merged] = leftArray[ind_arr_1];
+        ind_arr_1++;
+        ind_merged++;
     }
 
-    while (indexOfSubArrayTwo < subArrayTwo) {
-        array[indexOfMergedArray] = rightArray[indexOfSubArrayTwo];
-        indexOfSubArrayTwo++;
-        indexOfMergedArray++;
+    while (ind_arr_2 < lenght_arr2) {
+        array[ind_merged] = rightArray[ind_arr_2];
+        ind_arr_2++;
+        ind_merged++;
     }
 }
 
@@ -208,10 +212,10 @@ void mergeSort(std::vector<Book>& array, int const begin, int const end, int fla
     mergeSort(array, mid + 1, end, flag, flag1);
     merge(array, begin, mid, end, flag, flag1);
 }
-// returns the sorted vector 
+ 
 std::vector<Book> Store::sorted_books(int flag, int flag1)
 {
-
+    //! returns the sorted vector
     std::vector<Book> a;
     a = this->books;
 
@@ -220,7 +224,7 @@ std::vector<Book> Store::sorted_books(int flag, int flag1)
     
     return a;
 }
-// return a dynamicly allocated book if the book is found .... returns nullptr otherwise 
+//! return a dynamicly allocated book if the book is found .... returns nullptr otherwise 
  Book*  Store::find(const String& str, const int & flag)
 {
     bool found = false;
@@ -256,7 +260,7 @@ std::vector<Book> Store::sorted_books(int flag, int flag1)
 
         for (int i = 0; i < size; i++)
         {
-            if (to_string(books[i].get_isbn()) == str)
+            if (books[i].get_isbn().to_string() == remove_spaces(str))
             {
                 return new Book(books[i]);
             }

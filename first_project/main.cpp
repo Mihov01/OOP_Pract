@@ -2,6 +2,23 @@
 
 # include "Store.h"
 
+/*! \mainpage Introduction to my Library project 
+ *
+ * \section intro_sec Used data structures
+ *
+ * The two data structures i have used for this project are vector and string the string is sutable, because the members of the Book class are mostly the names of the book , author etc...
+ * I have used the vector because like a real library you never know how big it is going to be and the time complexity of adding an element in a vector is amortised tita(1)
+ *
+ * \section Idea 
+ * So basically tthe idea when i was making this project was to simulate a real library.
+ *
+ * \subsection : Improving the project
+ * 
+ * In the future I would like to add annother categorization to the books - genre 
+ and i would like to make a database of kind for multiple libraries ;
+ *
+ * etc...
+ */
 const String info = "The commands that the library supports are :\n sort - Sorts the books by given criteriia,\n find - Finds a book by a given criteria\n add - Adds a book (autorised access needed)\n remove -Removes a book (autorised access needed)\n print - Prints the content of a book\n exit - Exits the program \n info - prints info about the commands.\n";
 enum Commands
 {
@@ -15,7 +32,7 @@ enum Commands
 	Error
 
 };
-
+//! converts a string to an enum type
 Commands transform(const String& str)
 {
 	if (str == "sort")
@@ -50,7 +67,7 @@ Commands transform(const String& str)
 		return Error;
 	}
 }
-// prints the contents of a vector 
+//! prints the contents of a vector 
 void print(std::vector<Book>& a)
 {
 	int size = a.size();
