@@ -70,15 +70,22 @@ void Store::add()
             {
                 throw std::runtime_error("bad input\n");
             }
-            std::cout << "Please enter the ISBN of the book : \n";
+            std::cout << "Please enter the ISBN of the book : (it should be unique ISBN\n";
             std::cout << "-----------------------------------------------\n";
              Isbn isbn;
             std::cin >> isbn;
-            Book b(aut, tit, sor, descr, rating, isbn);
+            Book* f = this->find(isbn.to_string(), 2);
+            if (f == nullptr)
+            {
+                Book b(aut, tit, sor, descr, rating, isbn);
 
-            books.push_back(b);
-            std::cin.clear();
-            return;
+                books.push_back(b);
+
+                return;
+            }
+            else {
+                std::cerr << "This isbn alfeady exist\n";
+            }
         }
         else
         {
@@ -99,13 +106,13 @@ void Store::remove()
     {
         if (correct_password())
         {
-            std::cout << "Please enter the title of the book you wish to remove: \n";
-            String title;
-            title.getline();
-            Book* b = find(title, 0);
+            std::cout << "Please enter the ISBN of the book you wish to remove: \n";
+            Isbn isbn;
+            std::cin >> isbn;
+            Book* b = find(isbn.to_string(), 2);
             if (b != nullptr)
                 remove(*b);
-            delete b;
+           
         }
         else
         {
@@ -238,7 +245,7 @@ std::vector<Book> Store::sorted_books(int flag, int flag1)
         {
             if (books[i].get_title() == str)
             {
-                return new Book (books[i]);
+                return &books[i];
             }
         }
         return nullptr;
@@ -250,7 +257,7 @@ std::vector<Book> Store::sorted_books(int flag, int flag1)
         {
             if (books[i].get_author() == str)
             {
-                return new Book(books[i]);
+                return &books[i];
             }
         }
         return nullptr;
@@ -262,7 +269,7 @@ std::vector<Book> Store::sorted_books(int flag, int flag1)
         {
             if (books[i].get_isbn().to_string() == remove_spaces(str))
             {
-                return new Book(books[i]);
+                return &books[i];
             }
         }
         return nullptr;
@@ -274,7 +281,7 @@ std::vector<Book> Store::sorted_books(int flag, int flag1)
         {
             if (books[i].get_description().matching_substr(str))
             {
-                return new Book(books[i]);
+                return &books[i];
             }
         }
         return nullptr;

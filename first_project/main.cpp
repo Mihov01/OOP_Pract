@@ -1,9 +1,9 @@
 # include <iostream>
-
+# include<fstream>
 # include "Store.h"
 
 /*! \mainpage Introduction to my Library project 
- *
+ *\section github https://github.com/Mihov01
  * \section intro_sec Used data structures
  *
  * The two data structures i have used for this project are vector and string the string is sutable, because the members of the Book class are mostly the names of the book , author etc...
@@ -149,7 +149,7 @@ bool process(Store & a ,Commands comm)
 			if (f != nullptr)
 			{
 				f->Print();
-				delete f;
+				
 			}
 			else {
 				std::cerr << "No such book found";
@@ -165,6 +165,7 @@ bool process(Store & a ,Commands comm)
 		case Remove:
 		{
 			a.remove();
+			std::cin.ignore(10000, '\n');
 			return 1;
 		}; break;
 		case Print:
@@ -191,7 +192,7 @@ bool process(Store & a ,Commands comm)
 			if (f != nullptr)
 			{
 				f->print(flag, cnt);
-				delete f;
+			
 			}
 			else
 			{
@@ -242,7 +243,7 @@ int main()try
 	
 	
 	}
-
+	
 }
 catch (const std::exception& e)
 {

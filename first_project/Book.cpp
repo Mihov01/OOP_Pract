@@ -125,6 +125,10 @@ Book& Book ::operator=(const Book& other)
 		 std::string a;
 		 std::ifstream b;
 		 b.open(this->source.c_str());
+		 if (!b.is_open())
+		 {
+			 throw std::runtime_error("no such file exists\n");
+		 }
 		 char c = ' ';
 		 int cnt_n = 0;
 		 while (cnt_n != cnt && !b.eof())
@@ -143,6 +147,10 @@ Book& Book ::operator=(const Book& other)
 		 std::string a;
 		 std::ifstream b;
 		 b.open(this->source.c_str());
+		 if (!b.is_open())
+		 {
+			 throw std::runtime_error("no such file exists\n");
+		 }
 		 char c = ' ';
 		 int cnt_n = 0;
 		 while (cnt_n != 15 && !b.eof())
