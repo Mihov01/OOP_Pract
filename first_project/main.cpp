@@ -1,6 +1,8 @@
 # include <iostream>
 # include<fstream>
 # include "Store.h"
+# include "Book.h"
+# include <conio.h>
 
 /*! \mainpage Introduction to my Library project 
  *\section github https://github.com/Mihov01
@@ -73,7 +75,7 @@ void print(std::vector<Book>& a)
 	int size = a.size();
 	for (int i = 0; i < size; i++)
 	{
-		a[i].Print();
+		a[i].print();
 		std::cout << "\n";
 	}
 	std::cout << "\n";
@@ -85,17 +87,18 @@ bool process(Store & a ,Commands comm)
 		{
 		case Sort:
 		{
-			int flag1, flag2;
+			compare_by flag1;
+			compare flag2;
 			std::cout << "Do you wish to sort by descending or ascending order ?\n";
 			String c1;
 			c1.getline();
 			if (c1 == "descending")
 			{
-				flag2 = 1;
+				flag2 = Greater;
 			}
 			else if (c1 == "ascending")
 			{
-				flag2 = 0;
+				flag2 = Smaller;
 			}
 			else
 			{
@@ -107,15 +110,15 @@ bool process(Store & a ,Commands comm)
 			c.getline();
 			if (c == "Title")
 			{
-				flag1 = 0;
+				flag1 = TITLE;
 			}
 			else if (c == "Author")
 			{
-				flag1 = 1;
+				flag1 = AUTHOR;
 			}
 			else if (c == "Isbn")
 			{
-				flag1 = 2;
+				flag1 = ISBN;
 			}
 			else
 			{
@@ -124,35 +127,52 @@ bool process(Store & a ,Commands comm)
 			}
 			std::vector<Book> temp;
 
-			temp = a.sorted_books(flag1, flag2);
+			temp = a.sorted_books(flag2, flag1);
 			print(temp);
 			return 1;
 		}; break;
 		case Find:
 		{
-			int flag;
+			compare_by flag;
 			std::cout << "By witch criteria do you wish to search?\n Author , Title , Description , Isbn?\n";
 			String c;
+			String v;
 			c.getline();
-			if (c == "Title") flag = 0;
-			else if (c == "Author") flag = 1;
-			else if (c == "Isbn") flag = 2;
-			else if (c == "Description") flag = 3;
+			if (c == "Title")
+			{ flag = TITLE; 
+			std::cout << "Please enter the title of the book:\n";
+			v.getline();
+			}
+			else if (c == "Author")
+			{
+				flag = AUTHOR;
+				std::cout << "Please enter the author of the book :\n";
+				v.getline();
+			}
+			else if (c == "Isbn") {
+				flag = ISBN;
+				std::cout << "Please enter the author of the book (it should be in the format num1  num2 num3 num4 ,where num[i] is a part of the ISBN)  :\n";
+				v.getline();
+			}
+			else if (c == "Description") {
+				flag = DESCRIPTION;
+				std::cout << "Please enter the part of the description u search for in the book :\n";
+				v.getline();
+			}
 			else {
 				std::cerr << "Wrong input\n";
 				return -1;
 			}
-			std::cout << "Please enter :\n";
-			String v;
-			v.getline();
+			
+			
 			Book* f = a.find(v, flag);
 			if (f != nullptr)
 			{
-				f->Print();
+				f->print();
 				
 			}
 			else {
-				std::cerr << "No such book found";
+				std::cerr << "No such book found\n";
 			}
 			return 1;
 		}; break;
@@ -173,14 +193,14 @@ bool process(Store & a ,Commands comm)
 			String title;
 			std::cout << "Pease enter the title of the book you wish to read\n";
 			title.getline();
-			int flag;
+			print_by flag;
 			String what;
 			std::cout << "Do you wish to read a sertain number of lines or of sentences? ( please tipe lines or sentences): \n";
 			what.getline();
 			if (what == "lines")
-				flag = 0;
+				flag = LINES;
 			else if (what == "sentences")
-				flag = 1;
+				flag = SENTENCES;
 			else {
 				std::cerr << "Wrong input\n";
 				return -1;
@@ -188,10 +208,11 @@ bool process(Store & a ,Commands comm)
 			std::cout << "Please enter the count\n";
 			int cnt;
 			std::cin >> cnt;
-			Book* f = a.find(title, 0);
+			compare_by cmp = TITLE;
+			Book* f = a.find(title, cmp);
 			if (f != nullptr)
 			{
-				f->print(flag, cnt);
+				f->output(flag, cnt);
 			
 			}
 			else
@@ -222,16 +243,22 @@ bool process(Store & a ,Commands comm)
 
 int main()try
 {
-	Store a;
-	
+	std::cout << "Please set password : \n";
+	char b = _getch();
+	std::cout << "*";
+	String password;
+	password.push_back(b);
+	while (b != '\r')
+	{
+		b = _getch();
+		std::cout << "*";
+		password.push_back(b);
+	}
+	Store a(password);	
 	String str;
 	std::cout <<"\n" << info << "\n";
-
-	
 	while (true)
-	{
-
-		
+	{		
 		str.clear();
 		
 		std::cout << "Please enter a command\n";
@@ -239,9 +266,7 @@ int main()try
 		str.getline();
 
 		Commands comm = transform(str);
-		if (!process(a, comm)) break;
-	
-	
+		if (!process(a, comm)) break;	
 	}
 	
 }

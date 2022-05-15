@@ -27,6 +27,7 @@
   <td id="projectalign">
    <div id="projectname">Library
    </div>
+   <div id="projectbrief">OOP project for University</div>
   </td>
  </tr>
  </tbody>
@@ -89,38 +90,53 @@ $(document).ready(function(){initNavTree('_book_8h_source.html',''); initResizab
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include&quot;String.h&quot;</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor"># include &quot;Isbn.h&quot;</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor"># include &lt;iostream&gt;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno"><a class="line" href="struct_book.html">    5</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct_book.html">Book</a> {</div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>    <a class="code hl_struct" href="struct_book.html">Book</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>    <a class="code hl_struct" href="struct_book.html">Book</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_string.html">String</a>&amp;, <span class="keyword">const</span> <a class="code hl_class" href="class_string.html">String</a>&amp;, <span class="keyword">const</span> <a class="code hl_class" href="class_string.html">String</a>&amp;, <span class="keyword">const</span> <a class="code hl_class" href="class_string.html">String</a>&amp;, <span class="keyword">const</span> <span class="keywordtype">double</span>&amp;, <span class="keyword">const</span> <a class="code hl_struct" href="struct_isbn.html">Isbn</a>&amp;);</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    <a class="code hl_struct" href="struct_book.html">Book</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct_book.html">Book</a>&amp; );</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <a class="code hl_struct" href="struct_book.html">Book</a>&amp; <a class="code hl_function" href="struct_book.html#abb6cfa5c809d2aa8b7459af830bd81f7">operator =</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct_book.html">Book</a>&amp;);</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <a class="code hl_class" href="class_string.html">String</a> get_author()<span class="keyword">const</span>;</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <a class="code hl_class" href="class_string.html">String</a> get_title()<span class="keyword">const</span>;</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <a class="code hl_class" href="class_string.html">String</a> get_source()<span class="keyword">const</span>;</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <a class="code hl_class" href="class_string.html">String</a> get_description()<span class="keyword">const</span>;</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keywordtype">double</span> get_rating ()<span class="keyword">const</span>;</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <a class="code hl_struct" href="struct_isbn.html">Isbn</a>  get_isbn()<span class="keyword">const</span>;</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="struct_book.html#ad702d1cf9b8fe1aae222f35910bcc96c">smaller_by</a> (  <a class="code hl_struct" href="struct_book.html">Book</a>&amp; other, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> , <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> )<span class="keyword">const</span> ;</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="struct_book.html#a72938e00fb31e9f77cebbbd1c036499a">print</a>(<span class="keyword">const</span> <span class="keywordtype">int</span>&amp; flag, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; cnt)<span class="keyword">const</span>;</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="struct_book.html#a287edcd23f5c62841a449e3d1c6a2f37">Print</a>()<span class="keyword">const</span>;</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="struct_book.html#aa4f713a31ac415ae16747d85ccf6ff54">operator ==</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct_book.html">Book</a>&amp;);</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <a class="code hl_class" href="class_string.html">String</a> author;</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <a class="code hl_class" href="class_string.html">String</a> title;</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <a class="code hl_class" href="class_string.html">String</a> source;</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <a class="code hl_class" href="class_string.html">String</a> description;</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keywordtype">double</span> rating;</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <a class="code hl_struct" href="struct_isbn.html">Isbn</a> isbn;</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>};</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">enum</span> compare</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>{</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    Greater,</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    Smaller,</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>};</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">enum</span> compare_by</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>{</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    TITLE,</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    AUTHOR,</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    ISBN,</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    DESCRIPTION,</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>};</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">enum</span> print_by</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>{</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    LINES,</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    SENTENCES,</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>};</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="struct_book.html">   25</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct_book.html">Book</a> {</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <a class="code hl_struct" href="struct_book.html">Book</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <a class="code hl_struct" href="struct_book.html">Book</a>(<span class="keyword">const</span> <a class="code hl_class" href="class_string.html">String</a>&amp;, <span class="keyword">const</span> <a class="code hl_class" href="class_string.html">String</a>&amp;, <span class="keyword">const</span> <a class="code hl_class" href="class_string.html">String</a>&amp;, <span class="keyword">const</span> <a class="code hl_class" href="class_string.html">String</a>&amp;, <span class="keyword">const</span> <span class="keywordtype">double</span>&amp;, <span class="keyword">const</span> <a class="code hl_struct" href="struct_isbn.html">Isbn</a>&amp;);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <a class="code hl_struct" href="struct_book.html">Book</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct_book.html">Book</a>&amp; );</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <a class="code hl_struct" href="struct_book.html">Book</a>&amp; operator =(<span class="keyword">const</span> <a class="code hl_struct" href="struct_book.html">Book</a>&amp;);</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_string.html">String</a> &amp; get_author()<span class="keyword">const</span>;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_string.html">String</a> &amp; get_title()<span class="keyword">const</span>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_string.html">String</a> &amp; get_source()<span class="keyword">const</span>;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keyword">const</span> <a class="code hl_class" href="class_string.html">String</a> &amp; get_description()<span class="keyword">const</span>;</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordtype">double</span> get_rating ()<span class="keyword">const</span>;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <a class="code hl_struct" href="struct_isbn.html">Isbn</a>  get_isbn()<span class="keyword">const</span>;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="struct_book.html#a070677c74fbbf172c2e25d0e6dec2235">smaller_by</a> (  <a class="code hl_struct" href="struct_book.html">Book</a>&amp; other, compare &amp; , compare_by &amp;  )<span class="keyword">const</span> ;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="struct_book.html#a5f4af9cfffa2053cd009825268e34f8b">output</a>(print_by &amp;, <span class="keyword">const</span> <span class="keywordtype">int</span>&amp; cnt)<span class="keyword">const</span>;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="struct_book.html#af46441a304bd9d514fc9fb0cae3536cc">print</a>()<span class="keyword">const</span>;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="struct_book.html#aa4f713a31ac415ae16747d85ccf6ff54">operator ==</a>(<span class="keyword">const</span> <a class="code hl_struct" href="struct_book.html">Book</a>&amp;);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <a class="code hl_class" href="class_string.html">String</a> author;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <a class="code hl_class" href="class_string.html">String</a> title;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <a class="code hl_class" href="class_string.html">String</a> source;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <a class="code hl_class" href="class_string.html">String</a> description;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keywordtype">double</span> rating;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <a class="code hl_struct" href="struct_isbn.html">Isbn</a> isbn;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>};</div>
 <div class="ttc" id="aclass_string_html"><div class="ttname"><a href="class_string.html">String</a></div><div class="ttdef"><b>Definition:</b> String.h:4</div></div>
-<div class="ttc" id="astruct_book_html"><div class="ttname"><a href="struct_book.html">Book</a></div><div class="ttdef"><b>Definition:</b> Book.h:5</div></div>
-<div class="ttc" id="astruct_book_html_a287edcd23f5c62841a449e3d1c6a2f37"><div class="ttname"><a href="struct_book.html#a287edcd23f5c62841a449e3d1c6a2f37">Book::Print</a></div><div class="ttdeci">void Print() const</div><div class="ttdef"><b>Definition:</b> Book.cpp:163</div></div>
-<div class="ttc" id="astruct_book_html_a72938e00fb31e9f77cebbbd1c036499a"><div class="ttname"><a href="struct_book.html#a72938e00fb31e9f77cebbbd1c036499a">Book::print</a></div><div class="ttdeci">void print(const int &amp;flag, const int &amp;cnt) const</div><div class="ttdef"><b>Definition:</b> Book.cpp:115</div></div>
-<div class="ttc" id="astruct_book_html_aa4f713a31ac415ae16747d85ccf6ff54"><div class="ttname"><a href="struct_book.html#aa4f713a31ac415ae16747d85ccf6ff54">Book::operator==</a></div><div class="ttdeci">bool operator==(const Book &amp;)</div><div class="ttdef"><b>Definition:</b> Book.cpp:101</div></div>
-<div class="ttc" id="astruct_book_html_abb6cfa5c809d2aa8b7459af830bd81f7"><div class="ttname"><a href="struct_book.html#abb6cfa5c809d2aa8b7459af830bd81f7">Book::operator=</a></div><div class="ttdeci">Book &amp; operator=(const Book &amp;)</div><div class="ttdoc">operator == checks if to books are equal</div><div class="ttdef"><b>Definition:</b> Book.cpp:87</div></div>
-<div class="ttc" id="astruct_book_html_ad702d1cf9b8fe1aae222f35910bcc96c"><div class="ttname"><a href="struct_book.html#ad702d1cf9b8fe1aae222f35910bcc96c">Book::smaller_by</a></div><div class="ttdeci">bool smaller_by(Book &amp;other, unsigned int, unsigned int) const</div><div class="ttdoc">checs if a book is smaller / bigger than this book given a criteria</div><div class="ttdef"><b>Definition:</b> Book.cpp:60</div></div>
+<div class="ttc" id="astruct_book_html"><div class="ttname"><a href="struct_book.html">Book</a></div><div class="ttdef"><b>Definition:</b> Book.h:25</div></div>
+<div class="ttc" id="astruct_book_html_a070677c74fbbf172c2e25d0e6dec2235"><div class="ttname"><a href="struct_book.html#a070677c74fbbf172c2e25d0e6dec2235">Book::smaller_by</a></div><div class="ttdeci">bool smaller_by(Book &amp;other, compare &amp;, compare_by &amp;) const</div><div class="ttdoc">checs if a book is smaller / bigger than this book given a criteria</div><div class="ttdef"><b>Definition:</b> Book.cpp:60</div></div>
+<div class="ttc" id="astruct_book_html_a5f4af9cfffa2053cd009825268e34f8b"><div class="ttname"><a href="struct_book.html#a5f4af9cfffa2053cd009825268e34f8b">Book::output</a></div><div class="ttdeci">void output(print_by &amp;, const int &amp;cnt) const</div><div class="ttdef"><b>Definition:</b> Book.cpp:116</div></div>
+<div class="ttc" id="astruct_book_html_aa4f713a31ac415ae16747d85ccf6ff54"><div class="ttname"><a href="struct_book.html#aa4f713a31ac415ae16747d85ccf6ff54">Book::operator==</a></div><div class="ttdeci">bool operator==(const Book &amp;)</div><div class="ttdoc">operator == checks if to books are equal</div><div class="ttdef"><b>Definition:</b> Book.cpp:104</div></div>
+<div class="ttc" id="astruct_book_html_af46441a304bd9d514fc9fb0cae3536cc"><div class="ttname"><a href="struct_book.html#af46441a304bd9d514fc9fb0cae3536cc">Book::print</a></div><div class="ttdeci">void print() const</div><div class="ttdef"><b>Definition:</b> Book.cpp:163</div></div>
 <div class="ttc" id="astruct_isbn_html"><div class="ttname"><a href="struct_isbn.html">Isbn</a></div><div class="ttdef"><b>Definition:</b> Isbn.h:5</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

@@ -26,6 +26,7 @@ var NAVTREE =
 [
   [ "Library", "index.html", [
     [ "Introduction to my Library project", "index.html", [
+      [ "https://github.com/Mihov01", "index.html#github", null ],
       [ "Used data structures", "index.html#intro_sec", null ],
       [ "Idea", "index.html#Idea", null ]
     ] ],

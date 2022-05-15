@@ -222,7 +222,7 @@ std::ostream& operator << (std::ostream& out, const String& str)
     return out;
 }
 //! checks if str is in the string 
-bool String::matching_substr(const String& str)
+bool String::matching_substr(const String& str)const
 {
         int counter = 0; 
     
@@ -244,7 +244,7 @@ bool String::matching_substr(const String& str)
                 counter = 0;
             }
         }
-        return counter < length ? false : true;
+        return counter >= length;
     
 
 }

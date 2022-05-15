@@ -27,6 +27,7 @@
   <td id="projectalign">
    <div id="projectname">Library
    </div>
+   <div id="projectbrief">OOP project for University</div>
   </td>
  </tr>
  </tbody>
@@ -104,9 +105,8 @@ Public Member Functions</h2></td></tr>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="struct_isbn.html">Isbn</a> &amp;other)</td></tr>
 <tr class="memdesc:aa446578e8dd5fed32b93c22148f436ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">checks if two isbn are equal <br /></td></tr>
 <tr class="separator:aa446578e8dd5fed32b93c22148f436ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae11d0c510ac242a0ab10d4e2a4a6f92b"><td class="memItemLeft" align="right" valign="top"><a id="ae11d0c510ac242a0ab10d4e2a4a6f92b" name="ae11d0c510ac242a0ab10d4e2a4a6f92b"></a>
-<a class="el" href="class_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><b>to_string</b> ()</td></tr>
-<tr class="memdesc:ae11d0c510ac242a0ab10d4e2a4a6f92b"><td class="mdescLeft">&#160;</td><td class="mdescRight">converts the number to a string <br /></td></tr>
+<tr class="memitem:ae11d0c510ac242a0ab10d4e2a4a6f92b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_string.html">String</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_isbn.html#ae11d0c510ac242a0ab10d4e2a4a6f92b">to_string</a> ()</td></tr>
+<tr class="memdesc:ae11d0c510ac242a0ab10d4e2a4a6f92b"><td class="mdescLeft">&#160;</td><td class="mdescRight">converts the number to a string  <a href="struct_isbn.html#ae11d0c510ac242a0ab10d4e2a4a6f92b">More...</a><br /></td></tr>
 <tr class="separator:ae11d0c510ac242a0ab10d4e2a4a6f92b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae282794aca1dc4214ad0e62220748ddc"><td class="memItemLeft" align="right" valign="top"><a id="ae282794aca1dc4214ad0e62220748ddc" name="ae282794aca1dc4214ad0e62220748ddc"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator&lt;</b> (const <a class="el" href="struct_isbn.html">Isbn</a> &amp;)</td></tr>
@@ -165,10 +165,39 @@ std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operato
 </div><div class="memdoc">
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">a</td><td>is EAN_prefix </td></tr>
-    <tr><td class="paramname">b</td><td>is reg_group </td></tr>
-    <tr><td class="paramname">c</td><td>is publication </td></tr>
-    <tr><td class="paramname">d</td><td>is chek digit</td></tr>
+    <tr><td class="paramname">a</td><td>is EAN_prefix EAN prefix should be a 3 digit number </td></tr>
+    <tr><td class="paramname">b</td><td>is reg_group reg_group should be at most 5 digit number </td></tr>
+    <tr><td class="paramname">c</td><td>is publication publication should be at most 7 digit number </td></tr>
+    <tr><td class="paramname">d</td><td>is chek digit check digit should be anumber between 0 and 9</td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ae11d0c510ac242a0ab10d4e2a4a6f92b" name="ae11d0c510ac242a0ab10d4e2a4a6f92b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae11d0c510ac242a0ab10d4e2a4a6f92b">&#9670;&nbsp;</a></span>to_string()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_string.html">String</a> Isbn::to_string </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>converts the number to a string </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">b</td><td>is EAN_prefix EAN prefix should be a 3 digit number </td></tr>
+    <tr><td class="paramname">c</td><td>is reg_group reg_group should be at most 5 digit number </td></tr>
+    <tr><td class="paramname">d</td><td>is publication publication should be at most 7 digit number </td></tr>
+    <tr><td class="paramname">e</td><td>is chek digit check digit should be anumber between 0 and 9</td></tr>
   </table>
   </dd>
 </dl>

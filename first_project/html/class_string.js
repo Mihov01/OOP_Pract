@@ -12,7 +12,7 @@ var class_string =
     [ "front", "class_string.html#ae5c8caa50e19cea1e6ac6e1666e7f5bd", null ],
     [ "front", "class_string.html#a6e8edd0166b680316a4d02f5df9530ea", null ],
     [ "getline", "class_string.html#aae7a3995a17ac9ae7656cc8a4913df25", null ],
-    [ "matching_substr", "class_string.html#a390d431a669bb3cb24824c93dedc3b83", null ],
+    [ "matching_substr", "class_string.html#a297bee7d56af92728f8f0d6d8edbb1fa", null ],
     [ "operator!=", "class_string.html#a9120b53517de8ad6cf4e3f5bf990c266", null ],
     [ "operator+", "class_string.html#a0747b5aab5b107091f99b5d946c3bdfd", null ],
     [ "operator+", "class_string.html#a06d797065d347584f71c7a4dd177f58c", null ],

@@ -32,19 +32,19 @@ Book ::Book
 	this->rating = rating;
 	this->isbn = isbn;
 	}
-String Book::get_author()const
+const String& Book::get_author()const
 {
 	return this->author;
 }
-String Book::get_title()const
+const String& Book::get_title()const
 {
 	return this->title;
 }
-String Book::get_description()const
+const String& Book::get_description()const
 {
 	return this->description;
 }
-String Book::get_source() const
+const String &Book::get_source() const
 {
 	return this->source;
 }
@@ -57,33 +57,36 @@ double Book::get_rating() const
 	return this->isbn;
 }
 //! checs if a book is smaller / bigger than this book given a criteria 
-bool Book::smaller_by(  Book & other, unsigned int flag = 0, unsigned int flag1 = 0)const
+bool Book::smaller_by(  Book & other, compare & flag, compare_by & flag1  )const
 {
 //@param flag1 determines if it should return < or >
 //@param flag determines if it should return comparison by title , author or isbn
 	switch (flag1)
 	{
-	case 0: {
+	case compare::Smaller: {
 		switch (flag)
 		{
 		
-		case 0: return title < other.title; break;
-		case 1: return author < other.author; break;
-		case 2: return    other.isbn<this->isbn; break;
+		case compare_by::TITLE: return title < other.title; break;
+		case compare_by ::AUTHOR: return author < other.author; break;
+		case compare_by::ISBN: return    other.isbn<this->isbn; break;
+		default: throw std::runtime_error("No such option\n");
 		}
 	} break;
-	case 1:
+	case compare::Greater:
 	{
 		switch (flag)
 		{
-		case 0: return !(title < other.title); break;
-		case 1: return !(author < other.author); break;
-		case 2: return  other.isbn > isbn; break;
+		case compare_by::TITLE: return !(title < other.title); break;
+		case compare_by::AUTHOR: return !(author < other.author); break;
+		case compare_by::ISBN: return  other.isbn > isbn; break;
+		deafult: throw std::runtime_error("No such option\n");
 		}
 	}break;
+	default: throw std::runtime_error("No such option\n");
 	}
 }
-//! operator == checks if to books are equal
+
 Book& Book ::operator=(const Book& other)
 {
 	if (this != &other)
@@ -96,32 +99,26 @@ Book& Book ::operator=(const Book& other)
 		this->source = other.source;
 	}
 	return *this;
-
 }
+//! operator == checks if to books are equal
  bool Book ::operator==( const Book& b)
 {
-	 //!!operator ==
 	return (b.title == title &&
 		b.author == author &&
 		b.description == description &&
 		b.source == source &&
 		b.rating == rating &&
 		 isbn== b.isbn );
-
 }
  //! prints a given number of lines or sentences from the source 
    /// @param cnt the number of lines or sentences
  ///@param flag determines if the cnt is about lines or sentences
- void Book::print(const int& flag, const int& cnt) const
- 
+ void Book::output(print_by& flag, const int& cnt) const
  {
-	
-	 //! if flag is 0 the program reads cnt lines else it reads cnt sentences
 	 switch (flag)
 	 {
-	 case 0:
-	 {
-	
+	 case print_by::LINES:
+	 {	
 		 std::string a;
 		 std::ifstream b;
 		 b.open(this->source.c_str());
@@ -134,15 +131,13 @@ Book& Book ::operator=(const Book& other)
 		 while (cnt_n != cnt && !b.eof())
 		 {
 			 c = b.get();
-
 			 if (c == '\n') cnt_n++;
 			 a.push_back(c);
-
 		 }
 		 b.close();
 		 std::cout << a;
 	 }break;
-	 case 1:
+	 case print_by ::SENTENCES:
 	 {
 		 std::string a;
 		 std::ifstream b;
@@ -156,19 +151,16 @@ Book& Book ::operator=(const Book& other)
 		 while (cnt_n != 15 && !b.eof())
 		 {
 			 c = b.get();
-
 			 if (mark(c)) cnt_n++;
 			 a.push_back(c);
-
 		 }
 		 b.close();
 		 std::cout << a;
-	 }
+	 } break;
+	 default: throw std::runtime_error("No such option\n");
 	 }
  }
-
-
- void Book::Print()const 
+ void Book::print()const 
  {
 	 //! prints the basic informaton about the book
 	 std::cout <<"The title of the book is : " << title << "\nThe author of the book is" << author << "\nThe description of the book is :  " << description << "The source of the book is : " << source << "\n The raiting of the book is  " << rating << "\n The isbn of the book is : " << isbn << '\n';

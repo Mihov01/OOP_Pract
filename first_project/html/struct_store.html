@@ -27,6 +27,7 @@
   <td id="projectalign">
    <div id="projectname">Library
    </div>
+   <div id="projectbrief">OOP project for University</div>
   </td>
  </tr>
  </tbody>
@@ -91,55 +92,27 @@ $(document).ready(function(){initNavTree('struct_store.html',''); initResizable(
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5f58eadcb7385d5a5aa6830daef84f7d"><td class="memItemLeft" align="right" valign="top"><a id="a5f58eadcb7385d5a5aa6830daef84f7d" name="a5f58eadcb7385d5a5aa6830daef84f7d"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Store</b> ()</td></tr>
-<tr class="memdesc:a5f58eadcb7385d5a5aa6830daef84f7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">in the constructor the user should set the password for the authorised commands <br /></td></tr>
-<tr class="separator:a5f58eadcb7385d5a5aa6830daef84f7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acfe3e23a0a13b797c57a3692871c6633"><td class="memItemLeft" align="right" valign="top"><a id="acfe3e23a0a13b797c57a3692871c6633" name="acfe3e23a0a13b797c57a3692871c6633"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>Store</b> (<a class="el" href="class_string.html">String</a> &amp;password)</td></tr>
+<tr class="memdesc:acfe3e23a0a13b797c57a3692871c6633"><td class="mdescLeft">&#160;</td><td class="mdescRight">creates an instance of the store with @password being the password for authorised commands <br /></td></tr>
+<tr class="separator:acfe3e23a0a13b797c57a3692871c6633"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a63ea2ecc6405703bba973aefe551001a"><td class="memItemLeft" align="right" valign="top"><a id="a63ea2ecc6405703bba973aefe551001a" name="a63ea2ecc6405703bba973aefe551001a"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>add</b> ()</td></tr>
 <tr class="memdesc:a63ea2ecc6405703bba973aefe551001a"><td class="mdescLeft">&#160;</td><td class="mdescRight">if the password is correct the new book is added to the library <br /></td></tr>
 <tr class="separator:a63ea2ecc6405703bba973aefe551001a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa47588e065d49dfa0f6ddd47541b60f9"><td class="memItemLeft" align="right" valign="top"><a id="aa47588e065d49dfa0f6ddd47541b60f9" name="aa47588e065d49dfa0f6ddd47541b60f9"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>remove</b> ()</td></tr>
-<tr class="memdesc:aa47588e065d49dfa0f6ddd47541b60f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">removes if found a book from the library , by the title of the book time complexity tita(n) <br /></td></tr>
+<tr class="memdesc:aa47588e065d49dfa0f6ddd47541b60f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">removes if found a book from the library , by the ISBN of the book <br /></td></tr>
 <tr class="separator:aa47588e065d49dfa0f6ddd47541b60f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9355014bd3cf804293462271dd399222"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="struct_book.html">Book</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_store.html#a9355014bd3cf804293462271dd399222">sorted_books</a> (int flag, int flag1)</td></tr>
-<tr class="separator:a9355014bd3cf804293462271dd399222"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7c2cfbee65b2be15b5ea25bdfae5dba6"><td class="memItemLeft" align="right" valign="top"><a id="a7c2cfbee65b2be15b5ea25bdfae5dba6" name="a7c2cfbee65b2be15b5ea25bdfae5dba6"></a>
-<a class="el" href="struct_book.html">Book</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>find</b> (const <a class="el" href="class_string.html">String</a> &amp;, const int &amp;flag)</td></tr>
-<tr class="memdesc:a7c2cfbee65b2be15b5ea25bdfae5dba6"><td class="mdescLeft">&#160;</td><td class="mdescRight">return a dynamicly allocated book if the book is found .... returns nullptr otherwise <br /></td></tr>
-<tr class="separator:a7c2cfbee65b2be15b5ea25bdfae5dba6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93502061ec180f1b731667353534118e"><td class="memItemLeft" align="right" valign="top"><a id="a93502061ec180f1b731667353534118e" name="a93502061ec180f1b731667353534118e"></a>
+std::vector&lt; <a class="el" href="struct_book.html">Book</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>sorted_books</b> (compare &amp;flag, compare_by &amp;flag1)</td></tr>
+<tr class="memdesc:a93502061ec180f1b731667353534118e"><td class="mdescLeft">&#160;</td><td class="mdescRight">returns the sorted vector <br /></td></tr>
+<tr class="separator:a93502061ec180f1b731667353534118e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a91b0602c7765ba984d2d70459125f7d0"><td class="memItemLeft" align="right" valign="top"><a id="a91b0602c7765ba984d2d70459125f7d0" name="a91b0602c7765ba984d2d70459125f7d0"></a>
+<a class="el" href="struct_book.html">Book</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>find</b> (const <a class="el" href="class_string.html">String</a> &amp;, compare_by &amp;flag)</td></tr>
+<tr class="memdesc:a91b0602c7765ba984d2d70459125f7d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">return a dynamicly allocated book if the book is found .... returns nullptr otherwise <br /></td></tr>
+<tr class="separator:a91b0602c7765ba984d2d70459125f7d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a9355014bd3cf804293462271dd399222" name="a9355014bd3cf804293462271dd399222"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9355014bd3cf804293462271dd399222">&#9670;&nbsp;</a></span>sorted_books()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt; <a class="el" href="struct_book.html">Book</a> &gt; Store::sorted_books </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>flag</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>flag1</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p >returns the sorted vector</p>
-
-</div>
-</div>
 <hr/>The documentation for this struct was generated from the following files:<ul>
 <li><a class="el" href="_store_8h_source.html">Store.h</a></li>
 <li>Store.cpp</li>

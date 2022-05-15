@@ -4,10 +4,10 @@
 
 Isbn::Isbn(unsigned int a, unsigned int b, unsigned int c, unsigned int d)
 {
-	///@param a is EAN_prefix
-	/// @param b is reg_group
-	/// @param c is publication
-	/// @param d is chek digit
+	///@param a is EAN_prefix EAN prefix should be a 3 digit number
+	/// @param b is reg_group reg_group  should be at most 5 digit number
+	/// @param c is publication publication  should be at most 7 digit number
+	/// @param d is chek digit check digit  should be anumber between 0 and 9
 	
 	if (a > 999 || a < 100)
 	{
@@ -86,34 +86,32 @@ std::istream& operator >> (std::istream& in, Isbn& n)
 		throw e;
 	}
 }
+//! returns a number as a string
+void num(int a ,String & str)
+{
+
+	while (a != 0)
+	{
+		str.push_back('0' + a % 10);
+		a /= 10;
+	}
+}
 //! converts the number to a string 
 String Isbn::to_string()
 {
+	///@param b is EAN_prefix EAN prefix should be a 3 digit number
+	/// @param c is reg_group reg_group  should be at most 5 digit number
+	/// @param d is publication publication  should be at most 7 digit number
+	/// @param e is chek digit check digit  should be anumber between 0 and 9
 	String a;
 	unsigned int b = this->EAN_prefix;
 	unsigned int c = this->reg_group;
 	unsigned int d = this->publication;
 	unsigned int e = this->check_digit;
-	while (b != 0)
-	{
-		a.push_back('0' + b % 10);
-		b /= 10;
-	}
-	while (c != 0)
-	{
-		a.push_back('0' + c % 10);
-		c /= 10;
-	}
-	while (d != 0)
-	{
-		a.push_back('0' + d % 10);
-		d/= 10;
-	}
-	while (e != 0)
-	{
-		a.push_back('0' + e % 10);
-		e /= 10;
-	}
+	num(b,a);
+	num(c,a);
+	num(d,a);
+	num(e,a);
 	String str;
 	int ind = a.size() - 1;
 	for (int i = ind; i >= 0; --i)

@@ -41,7 +41,7 @@ public:
     const char* c_str() const;
 
     bool operator<(const String& rhs) const;
-    bool matching_substr(const String& str);
+    bool matching_substr(const String& str)const;
     void clear();
     std::size_t size() const;
     bool empty() const;
